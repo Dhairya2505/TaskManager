@@ -4,9 +4,9 @@ STEPS TO SETUP LOCALLY :
 
 
 1) Ensure you have nods.js installed on your device by running the commands :
-        node -v
-        npm -v
-   if the versions are not displayed, then install node.js.
+        <br>"node -v"
+        <br>"npm -v"
+   <br>if the versions are not displayed, then install node.js.
    
 2) Open VS code in the desired folder and run command in the vs code terminal:
      git clone "https://github.com/Dhairya2505/TaskManager.git"
