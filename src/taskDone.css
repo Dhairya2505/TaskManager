@@ -1,0 +1,8 @@
+.desc.checked, .title.checked {
+    text-decoration: line-through;
+    color: gray;
+}
+  
+.index.checked{
+    color:gray;
+}

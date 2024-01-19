@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './taskDone.css'
 
 // ...
 
@@ -86,7 +87,7 @@ function App() {
         {allTasks.map((element, index) => (
           element.Task && (
             <div key={index}>
-              <span className='desc'>{index + 1} : </span>
+              <span className={`index ${element.isChecked ? "checked" : ""}`}>{index + 1} : </span>
               <span>
                 <input
                   type="checkbox"
@@ -95,16 +96,16 @@ function App() {
                   onChange={() => checkboxClicked(index)}
                 />
               </span>
-              <span className='title' style={{ textDecoration: element.isChecked ? 'line-through' : 'none' }}>
+              <span className={`title ${element.isChecked ? "checked" : ""}`}>
                 Task :
               </span>{' '}
-              <span className='desc' style={{ textDecoration: element.isChecked ? 'line-through' : 'none' }}>
+              <span className={`desc ${element.isChecked ? "checked" : ""}`}>
                 {element.Task}
               </span>
-              <span className='title' style={{ textDecoration: element.isChecked ? 'line-through' : 'none' }}>
+              <span className={`title ${element.isChecked ? "checked" : ""}`}>
                 Description :
               </span>{' '}
-              <span className='desc' style={{ textDecoration: element.isChecked ? 'line-through' : 'none' }}>
+              <span className={`desc ${element.isChecked ? "checked" : ""}`}>
                 {element.Desc}
               </span>
               <span>
