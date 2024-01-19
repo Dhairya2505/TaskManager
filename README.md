@@ -9,16 +9,16 @@ STEPS TO SETUP LOCALLY :
    <br>if the versions are not displayed, then install node.js.
    
 2) Open VS code in the desired folder and run command in the vs code terminal:
-     git clone "https://github.com/Dhairya2505/TaskManager.git"
+     <br>git clone "https://github.com/Dhairya2505/TaskManager.git"
    
 3) Ensure that the vs code terminal is open in the folder where all the files are cloned.
  
 4) Now, run the command in terminal :
-     npm install
+     <br>"npm install"
    
 5) Now, run the command in terminal :
-      npm run dev
-   
-6) Open the URL provided.
+      <br>"npm run dev"
+
+6) Open the URL.
     
 7) The project is locally setup 🎉.
