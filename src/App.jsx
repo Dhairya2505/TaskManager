@@ -7,6 +7,7 @@ import './taskDone.css'
 function App() {
   const [task, setTask] = useState('');
   const [desc, setDesc] = useState('');
+  const [Priority,setPriority] =useState('');
   const [allTasks, setAllTasks] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
 
   const addTask = () => {
     if (task.trim() !== "") {
-      const newTask = { Task: task, Desc: desc, isChecked: false };
+      const newTask = { Task: task, Desc: desc, isChecked: false, priority : Priority};
       setAllTasks((prevTasks) => {
         const updatedTasks = [...prevTasks, newTask];
         localStorage.setItem('Tasks', JSON.stringify(updatedTasks));
@@ -32,6 +33,7 @@ function App() {
       });
       setTask('');
       setDesc('');
+      setPriority('Low');
     }
   };
 
@@ -59,6 +61,23 @@ function App() {
     });
   };
 
+  const priorityChanged=(index,event)=>{
+    console.log(index)
+
+    console.log(event.target.value)
+    setAllTasks((prevTasks) =>{
+      const updatedTasks = prevTasks.map((tasks,i)=>
+        i===index ? {...tasks,priority: event.target.value} : tasks
+      );
+      localStorage.setItem('Tasks',JSON.stringify(updatedTasks))
+      return updatedTasks;
+    })
+  }
+
+  const changePriority=(event)=>{
+    setPriority(event.target.value)
+  }
+
   return (
     <>
       <div>My Todo List</div>
@@ -70,6 +89,15 @@ function App() {
 
       <label htmlFor="desc">Description: </label>
       <input type="text" id="desc" value={desc} onChange={descChange} />
+
+      <br />
+
+      <label htmlFor="">Priorirty : </label>
+      <select name="" id="" value={Priority} onChange={changePriority}>
+        <option value="Low" selected>Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
 
       <br />
 
@@ -108,6 +136,11 @@ function App() {
               <span className={`desc ${element.isChecked ? "checked" : ""}`}>
                 {element.Desc}
               </span>
+              <select value={element.priority} onChange={()=>priorityChanged(index,event)}>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
               <span>
                 <button onClick={() => editTask(element.Task, element.Desc)}>Edit</button>
               </span>
